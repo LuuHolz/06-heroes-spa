@@ -1,7 +1,15 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavbarHeroes = () => {
+
+    const navigate = useNavigate();
+
+  const onLogout = () => {
+    navigate('/login', {replace: true});
+  };
+
+
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -22,7 +30,12 @@ const NavbarHeroes = () => {
           </Nav>
           <Nav className="ms-auto d-flex align-items-center">
             <span className="nav-item nav-link text-primary">Luciana</span>
-            <button className="nav-item nav-link btn">Logout</button>
+            <button 
+              className="nav-item nav-link btn"
+              onClick={onLogout}
+              >
+                Logout
+            </button>
           </Nav>
         </Container>
       </Navbar>
