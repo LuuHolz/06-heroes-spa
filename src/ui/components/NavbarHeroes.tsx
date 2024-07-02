@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../auth/context/AuthContext";
 
 const NavbarHeroes = () => {
 
-    const navigate = useNavigate();
+  const { user, logout } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const onLogout = () => {
+    logout();
     navigate('/login', {replace: true});
   };
 
@@ -29,7 +34,7 @@ const NavbarHeroes = () => {
             </Nav.Link>
           </Nav>
           <Nav className="ms-auto d-flex align-items-center">
-            <span className="nav-item nav-link text-primary">Luciana</span>
+            <span className="nav-item nav-link text-primary">{ user?.name }</span>
             <button 
               className="nav-item nav-link btn"
               onClick={onLogout}
