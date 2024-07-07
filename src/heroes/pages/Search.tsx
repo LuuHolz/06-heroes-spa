@@ -56,7 +56,7 @@ const Search = () => {
           <hr />
 
           {q === "" ? (
-            <div className="alert alert-primary">Search a hero</div>
+            <div aria-label="alert-danger" className="alert alert-primary">Search a hero</div>
           ) : (
             heroes.length === 0 && (
               <div className="alert alert-danger">
