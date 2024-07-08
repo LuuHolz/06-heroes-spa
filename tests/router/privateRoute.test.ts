@@ -1,4 +1,6 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+
 import { PrivateRoute } from '../../src/router/PrivateRoute';
 import { AuthContext } from "../../src/auth/context/AuthContext";
 
